@@ -9,50 +9,65 @@
 
 
     <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
+        android:id="@+id/button9"
+        android:layout_width="68dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="62dp"
+        android:layout_marginStart="154dp"
+        android:background="@drawable/roundedbutton"
+        android:text="Connect" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="57dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="62dp"
+        android:layout_marginStart="80dp"
+        android:background="@drawable/roundedbutton"
+        android:text="Map" />
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_home" />
+
+    <fragment
+        android:id="@+id/fragment_control"
+        android:name="com.example.tommi.hexapoduiapp.ControlFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
+
+    <fragment
+        android:id="@+id/fragment_data"
+        android:name="com.example.tommi.hexapoduiapp.DataFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="57dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="62dp"
         android:layout_marginStart="@dimen/activity_vertical_margin"
-        android:background="#FA6775"
-        android:text="Start Video" />
+        android:background="@drawable/roundedbutton"
+        android:text="Play" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="?android:attr/windowBackground"
-        app:menu="@menu/navigation" >
+        android:background="#809299"
+        android:textAlignment="center"
+        android:textDirection="firstStrong"
+        app:menu="@menu/navigation"
+        >
 
     </android.support.design.widget.BottomNavigationView>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="56dp">
-
-        <fragment
-            android:id="@+id/fragment_data"
-            android:name="com.example.tommi.hexapoduiapp.DataFragment"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
-
-        <fragment
-            android:id="@+id/fragment_control"
-            android:name="com.example.tommi.hexapoduiapp.ControlFragment"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
-
-
-        <TextView
-            android:id="@+id/message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_home" />
-
-    </FrameLayout>
 
 
 </FrameLayout>

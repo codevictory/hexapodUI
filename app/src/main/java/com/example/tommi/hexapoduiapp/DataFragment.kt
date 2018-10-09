@@ -2,6 +2,8 @@ package com.example.tommi.hexapoduiapp
 
 
 
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -15,11 +17,9 @@ import android.view.View
 import android.view.ViewGroup
 
 import android.widget.RelativeLayout
-
-
-
-
-
+import kotlinx.android.synthetic.main.fragment_control.*
+import kotlinx.android.synthetic.main.fragment_data.*
+import kotlinx.android.synthetic.main.fragment_data.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -49,6 +49,7 @@ class DataFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -59,6 +60,8 @@ class DataFragment : Fragment() {
 
         val relativeLayout = view.findViewById(R.id.fragment_data) as RelativeLayout
         relativeLayout.addView(Rectangle(this.requireContext()))
+
+
 
 
      return view
@@ -124,6 +127,12 @@ class DataFragment : Fragment() {
     }
 
     private inner class Rectangle(context: Context) : View(context) {
+        //
+        /*
+        val tx1 = ObjectAnimator.ofFloat(myRectangleView, View.TRANSLATION_Y, 0f, 200f)
+        tx1.setDuration(1000)
+        tx1.start()
+*/
         internal var paint = Paint()
         override fun onDraw(canvas: Canvas) {
             canvas.drawRGB(158, 174, 179)
@@ -132,30 +141,43 @@ class DataFragment : Fragment() {
             val brush1 = Paint ()
             val lineLenght = 150 .toFloat()
             val radius = 150
+            val minus = -110 .toFloat()
             val startx1 = (width / 2)-106 .toFloat()
             val starty1 = (height / 2)+106 .toFloat()
             val endx1 = startx1 - lineLenght
             val endy1 = starty1
+            val zx1 = endx1 - lineLenght
+            val zy1 = endy1 - minus
             val startx2 = (width / 2)+106 .toFloat()
             val starty2 = (height / 2)+106 .toFloat()
             val endx2 = startx2 + lineLenght
             val endy2 = starty2
+            val zx2 = endx2 + lineLenght
+            val zy2 = endy2- minus
             val startx3 = (width / 2)-150 .toFloat()
             val starty3 = (height / 2) .toFloat()
             val endx3 = startx3 - lineLenght
             val endy3 = starty3
+            val zx3 = endx3 - lineLenght
+            val zy3 = endy3- minus
             val startx4 = (width / 2)+150 .toFloat()
             val starty4 = (height / 2) .toFloat()
             val endx4 = startx4 + lineLenght
             val endy4 = starty4
+            val zx4 = endx4 + lineLenght
+            val zy4 = endy4- minus
             val startx5 = (width / 2)-106 .toFloat()
             val starty5 = (height / 2)-106 .toFloat()
             val endx5 = startx5 - lineLenght
             val endy5 = starty5
+            val zx5 = endx5 - lineLenght
+            val zy5 = endy5- minus
             val startx6 = (width / 2)+106 .toFloat()
             val starty6 = (height / 2)-106 .toFloat()
             val endx6 = startx6 + lineLenght
             val endy6 = starty6
+            val zx6 = endx6 + lineLenght
+            val zy6 = endy6- minus
             brush1.setARGB (255, 255, 0, 0)
             brush1.setStyle (Paint.Style.STROKE)
             brush1.setStrokeWidth(4 .toFloat())
@@ -172,6 +194,13 @@ class DataFragment : Fragment() {
             canvas.drawLine(startx4,starty4,endx4,endy4, paint)
             canvas.drawLine(startx5,starty5,endx5,endy5, paint)
             canvas.drawLine(startx6,starty6,endx6,endy6, paint)
+            canvas.drawLine(endx1,endy1,zx1,zy1, paint)
+            canvas.drawLine(endx2,endy2,zx2,zy2, paint)
+            canvas.drawLine(endx3,endy3,zx3,zy3, paint)
+            canvas.drawLine(endx4,endy4,zx4,zy4, paint)
+            canvas.drawLine(endx5,endy5,zx5,zy5, paint)
+            canvas.drawLine(endx6,endy6,zx6,zy6, paint)
+
             canvas.drawRect(rect, paint)
         }
     }

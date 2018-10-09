@@ -6,6 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".DataFragment">
 
+    <View
+        android:id="@+id/myRectangleView"
+        android:layout_width="70dp"
+        android:layout_height="15dp"
+        android:background="@drawable/rectangle"/>
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="187dp"
+        android:text="Button"
+        />
+
     <!-- TODO: Update blank fragment layout -->
 
 </RelativeLayout>

@@ -3,11 +3,14 @@
 
     <item
         android:id="@+id/navigation_data"
-        android:title="Data"
-        />
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:textSize="32dp"
+        android:title="Data" />
 
     <item
         android:id="@+id/navigation_control"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:textSize="100dp"
         android:title="Control" />
 
 </menu>
