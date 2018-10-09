@@ -58,10 +58,10 @@ class DataFragment : Fragment() {
 
         val view: View = inflater.inflate(R.layout.fragment_data, container, false)
 
+        val activity = activity
+
         val relativeLayout = view.findViewById(R.id.fragment_data) as RelativeLayout
         relativeLayout.addView(Rectangle(this.requireContext()))
-
-
 
 
      return view

@@ -1,14 +1,19 @@
 package com.example.tommi.hexapoduiapp
 
-
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.FragmentActivity
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_data.*
+import android.support.design.widget.TabLayout
+import android.support.v4.view.ViewPager
+import android.view.View
+
+
 
 
 class MainActivity : FragmentActivity(),  DataFragment.OnFragmentInteractionListener, ControlFragment.OnFragmentInteractionListener{
@@ -53,6 +58,7 @@ class MainActivity : FragmentActivity(),  DataFragment.OnFragmentInteractionList
         startActivity(intent);
         */
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
         val newFragment = DataFragment()
         val transaction = supportFragmentManager.beginTransaction()
@@ -67,7 +73,7 @@ class MainActivity : FragmentActivity(),  DataFragment.OnFragmentInteractionList
             startActivity(intent);
         }
         button8.setOnClickListener {
-
+            Toast.makeText(this, "Androidly Short Toasts", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, MapActivity::class.java)
             startActivity(intent);
         }
