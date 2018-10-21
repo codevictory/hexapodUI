@@ -67,16 +67,7 @@ class MainActivity : FragmentActivity(),  DataFragment.OnFragmentInteractionList
         transaction.commit()
 
 
-        button7.setOnClickListener {
 
-            val intent = Intent(this, VideoActivity::class.java)
-            startActivity(intent);
-        }
-        button8.setOnClickListener {
-            Toast.makeText(this, "Androidly Short Toasts", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, MapActivity::class.java)
-            startActivity(intent);
-        }
         button9.setOnClickListener {
 
             val intent = Intent(this, StartScreenActivity::class.java)
