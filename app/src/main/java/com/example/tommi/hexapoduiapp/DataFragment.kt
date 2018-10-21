@@ -61,10 +61,11 @@ class DataFragment : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_data, container, false)
 
         val activity = activity
-        val videoFrame = view.findViewById<FrameLayout>(R.id.videoFrame) as FrameLayout
+        val videoFrame = view.findViewById<RelativeLayout>(R.id.videoFrame) as RelativeLayout
         val radarFrame = view.findViewById<FrameLayout>(R.id.radarFrame) as FrameLayout
         val video = videoFrame.findViewById<VideoView>(R.id.videoView) as VideoView
-        val mapView = radarFrame.findViewById<View>(R.id.radarView) as View
+        val mapView = radarFrame.findViewById<RelativeLayout>(R.id.radarView) as RelativeLayout
+        mapView.addView(Rectangle(this.requireContext()))
         val button = videoFrame.findViewById<ImageButton>(R.id.play_button) as ImageButton
         val fullScreenButton = videoFrame.findViewById<ImageButton>(R.id.button8) as ImageButton
         val fullScreenMapButton = radarFrame.findViewById<ImageButton>(R.id.button10) as ImageButton
@@ -82,7 +83,7 @@ class DataFragment : Fragment() {
         var mediaController: MediaController? = null
         var TAG = "VideoPlayer"
         video.setVideoPath("https://www.ebookfrenzy.com/android_book/movie.mp4")
-
+        video.seekTo(100)
         button?.setOnClickListener({
             val isPlaying = videoView.isPlaying
             //button.setText(if (isPlaying) R.string.play else R.string.pause)
@@ -176,6 +177,86 @@ class DataFragment : Fragment() {
                         putString(ARG_PARAM2, param2)
                     }
                 }
+    }
+
+    private inner class Rectangle(context: Context) : View(context) {
+        //
+        /*
+        val tx1 = ObjectAnimator.ofFloat(myRectangleView, View.TRANSLATION_Y, 0f, 200f)
+        tx1.setDuration(1000)
+        tx1.start()
+*/
+        internal var paint = Paint()
+        override fun onDraw(canvas: Canvas) {
+            canvas.drawRGB(158, 174, 179)
+            val width = getWidth()
+            val height = getHeight()
+            val brush1 = Paint ()
+            val lineLenght = 150 .toFloat()
+            val radius = 150
+            val minus = -110 .toFloat()
+            val startx1 = (width / 2)-106 .toFloat()
+            val starty1 = (height / 2)+106 .toFloat()
+            val endx1 = startx1 - lineLenght
+            val endy1 = starty1
+            val zx1 = endx1 - lineLenght
+            val zy1 = endy1 - minus
+            val startx2 = (width / 2)+106 .toFloat()
+            val starty2 = (height / 2)+106 .toFloat()
+            val endx2 = startx2 + lineLenght
+            val endy2 = starty2
+            val zx2 = endx2 + lineLenght
+            val zy2 = endy2- minus
+            val startx3 = (width / 2)-150 .toFloat()
+            val starty3 = (height / 2) .toFloat()
+            val endx3 = startx3 - lineLenght
+            val endy3 = starty3
+            val zx3 = endx3 - lineLenght
+            val zy3 = endy3- minus
+            val startx4 = (width / 2)+150 .toFloat()
+            val starty4 = (height / 2) .toFloat()
+            val endx4 = startx4 + lineLenght
+            val endy4 = starty4
+            val zx4 = endx4 + lineLenght
+            val zy4 = endy4- minus
+            val startx5 = (width / 2)-106 .toFloat()
+            val starty5 = (height / 2)-106 .toFloat()
+            val endx5 = startx5 - lineLenght
+            val endy5 = starty5
+            val zx5 = endx5 - lineLenght
+            val zy5 = endy5- minus
+            val startx6 = (width / 2)+106 .toFloat()
+            val starty6 = (height / 2)-106 .toFloat()
+            val endx6 = startx6 + lineLenght
+            val endy6 = starty6
+            val zx6 = endx6 + lineLenght
+            val zy6 = endy6- minus
+            brush1.setARGB (255, 255, 0, 0)
+            brush1.setStyle (Paint.Style.STROKE)
+            brush1.setStrokeWidth(4 .toFloat())
+            for (f in 0..9)
+                canvas.drawCircle ((width / 2) .toFloat (), (height + 300) .toFloat (), (f * 200) .toFloat (), brush1)
+            paint.setColor(Color.BLACK)
+            paint.setStyle (Paint.Style.STROKE)
+            paint.setStrokeWidth(30 .toFloat())
+            /*
+            val rect = Rect((width / 2) +400, (height / 2)-600, (height / 2),(width / 2)-200 )
+            canvas.drawCircle ((width / 2) .toFloat (), (height / 2) .toFloat (), (150) .toFloat (), paint)
+            canvas.drawLine(startx1,starty1,endx1,endy1, paint)
+            canvas.drawLine(startx2,starty2,endx2,endy2, paint)
+            canvas.drawLine(startx3,starty3,endx3,endy3, paint)
+            canvas.drawLine(startx4,starty4,endx4,endy4, paint)
+            canvas.drawLine(startx5,starty5,endx5,endy5, paint)
+            canvas.drawLine(startx6,starty6,endx6,endy6, paint)
+            canvas.drawLine(endx1,endy1,zx1,zy1, paint)
+            canvas.drawLine(endx2,endy2,zx2,zy2, paint)
+            canvas.drawLine(endx3,endy3,zx3,zy3, paint)
+            canvas.drawLine(endx4,endy4,zx4,zy4, paint)
+            canvas.drawLine(endx5,endy5,zx5,zy5, paint)
+            canvas.drawLine(endx6,endy6,zx6,zy6, paint)
+*/
+            //canvas.drawRect(rect, paint)
+        }
     }
 
 

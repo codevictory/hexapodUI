@@ -4,62 +4,82 @@
     android:id="@+id/fragment_data"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DataFragment"
+    android:layout_marginBottom="56dp"
     android:orientation="vertical"
     android:weightSum="2"
-    android:layout_marginBottom="56dp">
+    tools:context=".DataFragment">
 
-    <FrameLayout
+    <RelativeLayout
         android:id="@+id/videoFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
 
 
-
         <VideoView
             android:id="@+id/videoView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
-            android:layout_weight="1" />
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+
+            />
 
         <ImageButton
             android:id="@+id/play_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_centerInParent="true"
             android:src="@android:drawable/ic_media_play" />
+
         <ImageButton
             android:id="@+id/button8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:src="@drawable/ic_dashboard_black_24dp" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_fullscreen" />
 
-    </FrameLayout>
+    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/radarFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@android:color/holo_orange_light"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp">
 
 
-
-        <View
+        <RelativeLayout
             android:id="@+id/radarView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/white" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This is the radar map. Click button to fullscreen" />
 
         <ImageButton
             android:id="@+id/button10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:src="@drawable/ic_dashboard_black_24dp" />
+
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_fullscreen" />
     </FrameLayout>
 
     <!-- TODO: Update blank fragment layout -->

@@ -6,18 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".VideoActivity">
 
-    <TextView
-        android:id="@+id/videoTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="This is vidoe"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="95dp" />
-
     <VideoView
         android:id="@+id/robotVideoView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
 </android.support.constraint.ConstraintLayout>
