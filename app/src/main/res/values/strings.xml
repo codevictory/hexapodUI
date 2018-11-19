@@ -10,5 +10,8 @@
     <string name="pause">Pause</string>
     <string name="paused">Paused…</string>
     <string name="playing">Playing…</string>
+    <string name="appaName"
+        fontFamily="monospace"
+        color="Black">Hexapod UI</string>
 
 </resources>

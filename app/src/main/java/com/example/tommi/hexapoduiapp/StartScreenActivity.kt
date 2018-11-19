@@ -1,14 +1,20 @@
 package com.example.tommi.hexapoduiapp
 
+import android.content.DialogInterface
 import android.content.Intent
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.FragmentActivity
+import android.support.v7.app.AlertDialog
 import android.view.Window
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_start_screen.*
 
-class StartScreenActivity : AppCompatActivity() {
+class StartScreenActivity : FragmentActivity() {
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

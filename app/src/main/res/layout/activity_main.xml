@@ -7,21 +7,37 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <android.support.v4.view.ViewPager
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </android.support.v4.view.ViewPager>
-
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="68dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:background="@drawable/roundedbutton"
-        android:text="Connect" />
+        android:background="@color/primaryLightColor"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingBottom="2dp"
+        android:theme="?attr/actionBarTheme">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:fontFamily="monospace"
+            android:text="Hexapod UI"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="24sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="right"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="TODO"
+            android:src="@drawable/ic_settings2" />
+    </android.support.v7.widget.Toolbar>
+
 
     <fragment
         android:id="@+id/fragment_control"
@@ -35,16 +51,18 @@
         android:layout_width="0dp"
         android:layout_height="0dp" />
 
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="#809299"
+        android:background="@android:color/white"
         android:textAlignment="center"
         android:textDirection="firstStrong"
-        app:menu="@menu/navigation"
-        >
+        app:itemIconTint="@drawable/item_color"
+        app:itemTextColor="@drawable/item_color"
+        app:menu="@menu/navigation">
 
     </android.support.design.widget.BottomNavigationView>
 

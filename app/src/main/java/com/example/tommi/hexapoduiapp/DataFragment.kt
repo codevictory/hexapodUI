@@ -10,6 +10,8 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
+import android.graphics.drawable.AnimatedVectorDrawable
+import android.graphics.drawable.AnimationDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -17,6 +19,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.ScaleAnimation
 import android.widget.*
 
 import kotlinx.android.synthetic.main.fragment_control.*
@@ -43,7 +47,8 @@ class DataFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
-
+    private lateinit var rocketAnimation: AnimatedVectorDrawable
+    lateinit var radarSignal1: View
 
 
 
@@ -54,6 +59,12 @@ class DataFragment : Fragment() {
 
     }
 
+    /*------------------------------------------------------------
+    *
+    *This oncreate is bit messy
+    *Hopefully can be cleaned later
+    *
+    *-----------------------------------------------------------*/
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
@@ -65,7 +76,11 @@ class DataFragment : Fragment() {
         val radarFrame = view.findViewById<FrameLayout>(R.id.radarFrame) as FrameLayout
         val video = videoFrame.findViewById<VideoView>(R.id.videoView) as VideoView
         val mapView = radarFrame.findViewById<RelativeLayout>(R.id.radarView) as RelativeLayout
-        mapView.addView(Rectangle(this.requireContext()))
+        //here is implementation of one radar signal
+        radarSignal1 = mapView.findViewById<View>(R.id.drawMapView2)
+        //this makes it grow
+        scaleView(radarSignal1, 1f, 30f)
+        //mapView.addView(Rectangle(this.requireContext()))
         val button = videoFrame.findViewById<ImageButton>(R.id.play_button) as ImageButton
         val fullScreenButton = videoFrame.findViewById<ImageButton>(R.id.button8) as ImageButton
         val fullScreenMapButton = radarFrame.findViewById<ImageButton>(R.id.button10) as ImageButton
@@ -91,18 +106,25 @@ class DataFragment : Fragment() {
             val msg = getString(if (isPlaying) R.string.paused else R.string.playing)
             Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show()
             if (isPlaying) {
+                button.setImageResource(R.drawable.ic_play)
                 videoView.pause()
 
             } else {
-                button.setVisibility(View.GONE)
+                button.setImageResource(R.drawable.ic_pause)
                 videoView.start()
             }
         })
 
-        /*val path = "android.resource://" + packageName + "/" + R.raw.a
-        videoView?.setVideoURI(Uri.parse(path))
-        */
+        val rocketImage = radarFrame.findViewById<ImageView>(R.id.imageView).apply {
+            setBackgroundResource(R.drawable.animvectordrawable)
+            rocketAnimation = background as AnimatedVectorDrawable
+            rocketAnimation.start()
+        }
+
 /*
+        //Something to control video
+        //Will look on this later
+
 
         mediaController = MediaController(getActivity())
         mediaController?.setAnchorView(video)
@@ -139,6 +161,16 @@ class DataFragment : Fragment() {
     override fun onDetach() {
         super.onDetach()
         listener = null
+    }
+    fun scaleView(v: View, startScale: Float, endScale: Float) {
+        val anim = ScaleAnimation(
+                1f, 1f, // Start and end values for the X axis scaling
+                1f, endScale, // Start and end values for the Y axis scaling
+                Animation.RELATIVE_TO_SELF, 0f, // Pivot point of X scaling
+                Animation.RELATIVE_TO_SELF, 1f) // Pivot point of Y scaling
+        anim.fillAfter = true // Needed to keep the result of the animation
+        anim.duration = 2000
+        v.startAnimation(anim)
     }
 
     /**
@@ -178,6 +210,9 @@ class DataFragment : Fragment() {
                     }
                 }
     }
+/*
+
+//Also here is this, which is propably needed anymore
 
     private inner class Rectangle(context: Context) : View(context) {
         //
@@ -188,7 +223,7 @@ class DataFragment : Fragment() {
 */
         internal var paint = Paint()
         override fun onDraw(canvas: Canvas) {
-            canvas.drawRGB(158, 174, 179)
+            canvas.drawRGB(255, 255, 255)
             val width = getWidth()
             val height = getHeight()
             val brush1 = Paint ()
@@ -258,6 +293,7 @@ class DataFragment : Fragment() {
             //canvas.drawRect(rect, paint)
         }
     }
+    */
 
 
 }
