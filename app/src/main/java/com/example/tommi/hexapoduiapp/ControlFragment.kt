@@ -1,5 +1,7 @@
 package com.example.tommi.hexapoduiapp
 
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator.REVERSE
 import android.content.Context
 import android.content.Intent
 import android.graphics.Canvas
@@ -8,10 +10,13 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
+import android.support.constraint.ConstraintLayout
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.ScaleAnimation
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
@@ -39,6 +44,7 @@ class ControlFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
+    lateinit var leg: View
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,10 +64,28 @@ class ControlFragment : Fragment() {
         val view: View = inflater!!.inflate(R.layout.fragment_control, container,
                 false)
         val activity = activity
+        val verticalDivider2 = view.findViewById<ConstraintLayout>(R.id.robotLayout) as ConstraintLayout
+        leg = verticalDivider2.findViewById(R.id.drawHexapodLegView) as View
+
+        //Starting animation
+        //Should be in other function
+
+
+        leg.setOnClickListener(){
+            leg.pivotX = 0f
+            leg.pivotY = 0f
+            val animator = ObjectAnimator.ofFloat(leg, "rotation", 0f, 39f)
+
+            animator.setRepeatCount(ObjectAnimator.INFINITE);
+            animator.setRepeatMode(ObjectAnimator.REVERSE);
+            animator.start()
+
+        }
+        ObjectAnimator.ofFloat(leg, "rotation", 0f, 90f)
         val verticalDivider = view.findViewById<LinearLayout>(R.id.layout1) as LinearLayout
 
-        val relativeLayout = view.findViewById(R.id.drawView) as RelativeLayout
-        relativeLayout.addView(Rectangle(this.requireContext()))
+        //val relativeLayout = view.findViewById(R.id.drawView) as RelativeLayout
+        //relativeLayout.addView(Rectangle(this.requireContext()))
         val horizontalDivider = verticalDivider.findViewById<LinearLayout>(R.id.layout2) as LinearLayout
         val horizontalDivider2 = verticalDivider.findViewById<LinearLayout>(R.id.layout3) as LinearLayout
 
@@ -114,6 +138,16 @@ class ControlFragment : Fragment() {
         super.onDetach()
         listener = null
     }
+    fun scaleView(v: View, startScale: Float, endScale: Float) {
+        val anim = ScaleAnimation(
+                1f, 1f, // Start and end values for the X axis scaling
+                1f, endScale, // Start and end values for the Y axis scaling
+                Animation.RELATIVE_TO_SELF, 0f, // Pivot point of X scaling
+                Animation.RELATIVE_TO_SELF, 1f) // Pivot point of Y scaling
+        anim.fillAfter = true // Needed to keep the result of the animation
+        anim.duration = 2000
+        v.startAnimation(anim)
+    }
 
     /**
      * This interface must be implemented by activities that contain this
@@ -150,6 +184,10 @@ class ControlFragment : Fragment() {
                     }
                 }
     }
+
+    /*
+    //I think this is not needed anymore
+
     private inner class Rectangle(context: Context) : View(context) {
         //
         /*
@@ -228,4 +266,5 @@ class ControlFragment : Fragment() {
             //canvas.drawRect(rect, paint)
         }
     }
+    */
 }

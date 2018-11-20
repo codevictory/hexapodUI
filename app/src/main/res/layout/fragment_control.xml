@@ -6,24 +6,44 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="2"
-    tools:context=".ControlFragment">
+    tools:context=".ControlFragment"
+    android:layout_marginTop="56dp"
+    android:layout_marginBottom="56dp">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <RelativeLayout
-        android:id="@+id/drawView"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/robotLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <com.example.tommi.hexapoduiapp.DrawHexapodLegView
+            android:id="@+id/drawHexapodLegView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:background="@android:color/transparent" />
+
+        <com.example.tommi.hexapoduiapp.DrawMapView
+            android:id="@+id/drawMapView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent" />
+
+    </android.support.constraint.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="56dp"
-        android:orientation="vertical"
-        android:padding="0dp"
+
+
         android:layout_weight="1"
+        android:background="@color/primaryColor"
+        android:orientation="vertical"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
         android:weightSum="2">
 
         <LinearLayout
@@ -33,6 +53,7 @@
             android:layout_margin="0dp"
 
             android:layout_weight="1"
+            android:background="@color/primaryTextColor"
             android:orientation="horizontal"
             android:padding="0dp">
 
@@ -40,26 +61,35 @@
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_margin="0dp"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
-                android:background="#51A39D"
-                android:padding="0dp"
-                android:text="Button" />
+                android:background="@color/primaryLightColor"
+                android:fontFamily="monospace"
+
+                android:text="Play"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
-                android:background="#CDBB79"
-                android:text="Button" />
+                android:background="@color/primaryDarkColor"
+                android:fontFamily="monospace"
+                android:text="Pause"
+                android:textAllCaps="false" />
+
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
-                android:background="#44B3C2"
-                android:text="Button" />
+                android:background="@color/primaryLightColor"
+                android:fontFamily="monospace"
+                android:text="Stop"
+                android:textAllCaps="false" />
         </LinearLayout>
 
         <LinearLayout
@@ -67,30 +97,41 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@color/primaryTextColor"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
-                android:background="#814374"
-                android:text="Button" />
+                android:background="@color/primaryDarkColor"
+                android:fontFamily="monospace"
+                android:text="Program 1"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
-                android:background="#B7695C"
-                android:text="Button" />
+                android:background="@color/primaryLightColor"
+                android:fontFamily="monospace"
+                android:text="Program 2"
+                android:textAllCaps="false" />
+
             <Button
                 android:id="@+id/button6"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
-                android:background="#F1A94E"
-                android:text="Button" />
+                android:background="@color/primaryDarkColor"
+                android:fontFamily="monospace"
+                android:text="Program 3"
+                android:textAllCaps="false" />
         </LinearLayout>
 
     </LinearLayout>
