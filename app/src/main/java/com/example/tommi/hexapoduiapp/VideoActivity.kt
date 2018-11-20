@@ -15,9 +15,6 @@ class VideoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_video)
 
         val videoView = findViewById(R.id.robotVideoView) as VideoView
-
-        //This needs controls - maybe
-
         //MediaController mediaController = new MediaController(this);
         // mediaController.setAnchorView(videoView);
         //videoView.setMediaController(mediaController);

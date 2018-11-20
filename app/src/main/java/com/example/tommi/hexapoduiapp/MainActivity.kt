@@ -12,14 +12,11 @@ import kotlinx.android.synthetic.main.fragment_data.*
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
 import android.view.View
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
-import android.support.v7.app.ActionBar
-import android.support.v7.widget.Toolbar
 
 
-class MainActivity : FragmentActivity(),  DataFragment.OnFragmentInteractionListener, ControlFragment.OnFragmentInteractionListener {
+
+
+class MainActivity : FragmentActivity(),  DataFragment.OnFragmentInteractionListener, ControlFragment.OnFragmentInteractionListener{
     override fun onFragmentInteraction(uri: Uri) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -54,16 +51,15 @@ class MainActivity : FragmentActivity(),  DataFragment.OnFragmentInteractionList
 
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         /*
-        //This is how to make start screen open at first but so far it just creates and endless loop
         val intent = Intent(this, StartScreenActivity::class.java)
         startActivity(intent);
         */
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-
         val newFragment = DataFragment()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.container, newFragment)
@@ -71,8 +67,17 @@ class MainActivity : FragmentActivity(),  DataFragment.OnFragmentInteractionList
         transaction.commit()
 
 
+        button7.setOnClickListener {
 
-       imageButton.setOnClickListener {
+            val intent = Intent(this, VideoActivity::class.java)
+            startActivity(intent);
+        }
+        button8.setOnClickListener {
+            Toast.makeText(this, "Androidly Short Toasts", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MapActivity::class.java)
+            startActivity(intent);
+        }
+        button9.setOnClickListener {
 
             val intent = Intent(this, StartScreenActivity::class.java)
             startActivity(intent);
@@ -80,5 +85,6 @@ class MainActivity : FragmentActivity(),  DataFragment.OnFragmentInteractionList
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
+
 
 }

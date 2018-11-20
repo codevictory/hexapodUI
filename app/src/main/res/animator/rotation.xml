@@ -1,9 +1,0 @@
-<!-- res/animator/rotation.xml -->
-<objectAnimator
-    android:duration="2000"
-    android:propertyName="rotation"
-    android:valueFrom="-45"
-    android:valueTo="45"
-    android:repeatCount="infinite"
-    android:repeatMode="reverse"
-    xmlns:android="http://schemas.android.com/apk/res/android" />

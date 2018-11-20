@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-<!--
-    <item
-        android:id="@+id/navigation_map"
-        android:fontFamily="monospace"
-        android:icon="@drawable/ic_map"
-        android:textSize="32dp"
-        android:title="Map" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-        -->
     <item
         android:id="@+id/navigation_data"
-        android:fontFamily="monospace"
-        android:icon="@drawable/ic_radar"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
         android:textSize="32dp"
         android:title="Data" />
 
     <item
         android:id="@+id/navigation_control"
-        android:fontFamily="monospace"
-        android:icon="@drawable/ic_control"
+        android:icon="@android:drawable/ic_dialog_dialer"
         android:textSize="100dp"
         android:title="Control" />
 

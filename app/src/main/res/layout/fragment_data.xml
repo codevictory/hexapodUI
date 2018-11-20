@@ -1,121 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_data"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="56dp"
-    android:layout_marginTop="56dp"
-    android:orientation="vertical"
-    android:weightSum="2"
     tools:context=".DataFragment">
 
-    <RelativeLayout
-        android:id="@+id/videoFrame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+    <View
+        android:id="@+id/myRectangleView"
+        android:layout_width="70dp"
+        android:layout_height="15dp"
+        android:background="@drawable/rectangle"/>
 
-
-        <VideoView
-            android:id="@+id/videoView"
-
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-
-            />
-
-        <ImageButton
-            android:id="@+id/play_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_play" />
-
-        <ImageButton
-            android:id="@+id/button8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="4dp"
-            android:background="@android:color/transparent"
-            android:padding="8dp"
-            android:src="@drawable/ic_fullscreen3"
-            android:tint="@android:color/white" />
-
-    </RelativeLayout>
-
-    <FrameLayout
-        android:id="@+id/radarFrame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@color/primaryColor"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp">
-
-
-        <RelativeLayout
-            android:id="@+id/radarView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/white" >
-
-            <com.example.tommi.hexapoduiapp.DrawRadarView
-                android:id="@+id/drawMapView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp" />
-
-            <com.example.tommi.hexapoduiapp.DrawRadarView
-                android:id="@+id/drawMapView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="110dp" />
-
-            <com.example.tommi.hexapoduiapp.DrawRadarView
-                android:id="@+id/drawMapView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="210dp" />
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="bottom"
-                android:src="@drawable/animvectordrawable" />
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="This is the radar map. Click button to fullscreen" />
-
-        <ImageButton
-            android:id="@+id/button10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-
-            android:layout_marginRight="4dp"
-            android:layout_marginBottom="4dp"
-            android:background="@android:color/transparent"
-            android:padding="8dp"
-            android:src="@drawable/ic_fullscreen2"
-            android:tint="@color/primaryTextColor" />
-    </FrameLayout>
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="187dp"
+        android:text="Button"
+        />
 
     <!-- TODO: Update blank fragment layout -->
 
-</LinearLayout>
+</RelativeLayout>

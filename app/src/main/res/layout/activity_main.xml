@@ -7,37 +7,37 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="68dp"
         android:layout_height="wrap_content"
-        android:background="@color/primaryLightColor"
-        android:minHeight="?attr/actionBarSize"
-        android:paddingBottom="2dp"
-        android:theme="?attr/actionBarTheme">
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="62dp"
+        android:layout_marginStart="154dp"
+        android:background="@drawable/roundedbutton"
+        android:text="Connect" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:fontFamily="monospace"
-            android:text="Hexapod UI"
-            android:textColor="@color/primaryTextColor"
-            android:textSize="24sp" />
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="57dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="62dp"
+        android:layout_marginStart="80dp"
+        android:background="@drawable/roundedbutton"
+        android:text="Map" />
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_gravity="right"
-            android:layout_marginEnd="8dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="TODO"
-            android:src="@drawable/ic_settings2" />
-    </android.support.v7.widget.Toolbar>
-
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_home" />
 
     <fragment
         android:id="@+id/fragment_control"
@@ -51,18 +51,26 @@
         android:layout_width="0dp"
         android:layout_height="0dp" />
 
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="57dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="62dp"
+        android:layout_marginStart="@dimen/activity_vertical_margin"
+        android:background="@drawable/roundedbutton"
+        android:text="Play" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@android:color/white"
+        android:background="#809299"
         android:textAlignment="center"
         android:textDirection="firstStrong"
-        app:itemIconTint="@drawable/item_color"
-        app:itemTextColor="@drawable/item_color"
-        app:menu="@menu/navigation">
+        app:menu="@menu/navigation"
+        >
 
     </android.support.design.widget.BottomNavigationView>
 
